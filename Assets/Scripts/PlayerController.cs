@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
   private Rigidbody2D rigidbody2d;
   [SerializeField] private float speed = 7f;
+  [SerializeField] private GameObject ammunition;
   
   // Start is called before the first frame update
   void Start() {
@@ -16,7 +17,13 @@ public class PlayerController : MonoBehaviour {
     float horizontal = Input.GetAxis("Horizontal");
     float vertical = Input.GetAxis("Vertical");
     var direction = new Vector2(horizontal, vertical).normalized;
-    Debug.Log(direction);
     rigidbody2d.velocity = direction * speed;
+
+    if (Input.GetButtonDown("Fire1")) {
+      var position = transform.position;
+      position.y += 0.5f;
+      var gameObject = Instantiate(ammunition, position, Quaternion.identity);
+      Destroy(gameObject, 1.5f);
+    } 
   }
 }
