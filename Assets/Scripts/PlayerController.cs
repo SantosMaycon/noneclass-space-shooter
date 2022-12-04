@@ -22,8 +22,7 @@ public class PlayerController : MonoBehaviour {
     if (Input.GetButtonDown("Fire1")) {
       var position = transform.position;
       position.y += 0.5f;
-      var gameObject = Instantiate(ammunition, position, Quaternion.identity);
-      Destroy(gameObject, 1.5f);
+      Instantiate(ammunition, position, Quaternion.identity);
     } 
   }
 }
