@@ -9,6 +9,7 @@ public class Enemy01Controller : MonoBehaviour {
   private float waitShot;
   private float waitTime;
   private SpriteRenderer childrenSpriteRender;
+  [SerializeField] private Transform pointOfShot;
 
   // Start is called before the first frame update
   void Start() {
@@ -24,7 +25,7 @@ public class Enemy01Controller : MonoBehaviour {
     waitShot -= Time.deltaTime;
    
     if (waitShot <= 0 && childrenSpriteRender.isVisible) {
-      Instantiate(ammunition, transform.position, Quaternion.identity);
+      Instantiate(ammunition, pointOfShot.position, Quaternion.identity);
       waitShot = waitTime;
     }
   }

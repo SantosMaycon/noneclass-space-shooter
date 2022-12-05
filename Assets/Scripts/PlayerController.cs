@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
   private Rigidbody2D rigidbody2d;
   [SerializeField] private float speed = 7f;
   [SerializeField] private GameObject ammunition;
-  
+  [SerializeField] private Transform pointOfShot;
   // Start is called before the first frame update
   void Start() {
     rigidbody2d = GetComponent<Rigidbody2D>();
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     if (Input.GetButtonDown("Fire1")) {
       var position = transform.position;
       position.y += 0.8f;
-      Instantiate(ammunition, position, Quaternion.identity);
+      Instantiate(ammunition, pointOfShot.position, Quaternion.identity);
     } 
   }
 }
