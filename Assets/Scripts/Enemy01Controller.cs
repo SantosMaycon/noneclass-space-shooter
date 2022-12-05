@@ -8,7 +8,7 @@ public class Enemy01Controller : MonoBehaviour {
   [SerializeField] private GameObject ammunition;
   private float waitShot;
   private float waitTime;
-
+  private SpriteRenderer childrenSpriteRender;
 
   // Start is called before the first frame update
   void Start() {
@@ -16,13 +16,14 @@ public class Enemy01Controller : MonoBehaviour {
     rigidbody2d.velocity = Vector2.down * speed;
     waitShot = Random.Range(0.5f, 2f);
     waitTime = waitShot;
+    childrenSpriteRender = GetComponentInChildren<SpriteRenderer>();
   }
 
   // Update is called once per frame
   void Update() {
     waitShot -= Time.deltaTime;
-    
-    if (waitShot <= 0) {
+   
+    if (waitShot <= 0 && childrenSpriteRender.isVisible) {
       Instantiate(ammunition, transform.position, Quaternion.identity);
       waitShot = waitTime;
     }
