@@ -170,3 +170,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   isLookingUp: 0
+  explodeShot: {fileID: 26654755666938367, guid: cf2ca13100da9b44bb4acad79656543a, type: 3}

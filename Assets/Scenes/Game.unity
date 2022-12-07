@@ -340,8 +340,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1330900240}
   - component: {fileID: 1330900239}
-  - component: {fileID: 1330900238}
   - component: {fileID: 1330900241}
+  - component: {fileID: 1330900238}
   m_Layer: 6
   m_Name: Enemy 01
   m_TagString: Enemy01
@@ -364,7 +364,7 @@ MonoBehaviour:
   speed: 1.5
   ammunition: {fileID: 2083257695023107417, guid: 59454c153fa50654aae06d165de5fc06, type: 3}
   pointOfShot: {fileID: 1138980178}
-  life: 0
+  life: 3
 --- !u!50 &1330900239
 Rigidbody2D:
   serializedVersion: 4
@@ -534,8 +534,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1526366054}
   - component: {fileID: 1526366056}
-  - component: {fileID: 1526366055}
   - component: {fileID: 1526366057}
+  - component: {fileID: 1526366055}
   m_Layer: 7
   m_Name: Player
   m_TagString: Nave
@@ -575,6 +575,7 @@ MonoBehaviour:
   speed: 7
   ammunition: {fileID: 1726175214342563475, guid: cbf70130d2c2f0640b82010be1a2f6f5, type: 3}
   pointOfShot: {fileID: 765680578}
+  life: 5
 --- !u!50 &1526366056
 Rigidbody2D:
   serializedVersion: 4

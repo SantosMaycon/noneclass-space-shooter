@@ -6,6 +6,7 @@ public class ShotController : MonoBehaviour {
   private Rigidbody2D rigidbody2d;
   [SerializeField] private float speed = 10f;
   [SerializeField] private bool isLookingUp = true;
+  [SerializeField] private GameObject explodeShot;
 
   // Start is called before the first frame update
   void Start() {
@@ -17,7 +18,7 @@ public class ShotController : MonoBehaviour {
   void Update() {}
 
   private void OnTriggerEnter2D(Collider2D other) {
-    if (other.CompareTag("Enemy 01")) {
+    if (other.CompareTag("Enemy01")) {
       other.GetComponent<Enemy01Controller>().damegedLife(1);
     }
 
@@ -26,5 +27,6 @@ public class ShotController : MonoBehaviour {
     }
 
     Destroy(gameObject);
+    Instantiate(explodeShot, transform.position, Quaternion.identity);
   }
 }

@@ -93,10 +93,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4220569863613822286}
-  - component: {fileID: 6734480812173428701}
   - component: {fileID: 1510711087}
   - component: {fileID: 1510711086}
   - component: {fileID: 7714088033719944883}
+  - component: {fileID: 6734480812173428701}
   m_Layer: 8
   m_Name: Shot
   m_TagString: Untagged
@@ -120,20 +120,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6734480812173428701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726175214342563475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abe8162bf9182d84fa2b86845e35b82e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  isLookingUp: 1
 --- !u!50 &1510711087
 Rigidbody2D:
   serializedVersion: 4
@@ -191,3 +177,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6734480812173428701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726175214342563475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe8162bf9182d84fa2b86845e35b82e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  isLookingUp: 1
+  explodeShot: {fileID: 26654755666938367, guid: cf2ca13100da9b44bb4acad79656543a, type: 3}
