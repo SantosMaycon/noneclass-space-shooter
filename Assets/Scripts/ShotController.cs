@@ -18,8 +18,8 @@ public class ShotController : MonoBehaviour {
   void Update() {}
 
   private void OnTriggerEnter2D(Collider2D other) {
-    if (other.CompareTag("Enemy01")) {
-      other.GetComponent<Enemy01Controller>().damegedLife(1);
+    if (other.CompareTag("Enemy")) {
+      other.GetComponent<Enemy>().damegedLife(1);
     }
 
     if (other.CompareTag("Nave")) {
