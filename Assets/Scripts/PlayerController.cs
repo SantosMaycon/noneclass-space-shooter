@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
   [SerializeField] private GameObject ammunition;
   [SerializeField] private Transform pointOfShot;
   [SerializeField] private int life;
+  [SerializeField] private GameObject explodeEffect;
   // Start is called before the first frame update
   void Start() {
     rigidbody2d = GetComponent<Rigidbody2D>();
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour {
 
     if (life <= 0) {
       Destroy(gameObject);
+      Instantiate(explodeEffect, pointOfShot.position, Quaternion.identity);
     }
   }
 }
