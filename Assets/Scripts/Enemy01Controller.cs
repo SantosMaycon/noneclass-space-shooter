@@ -11,6 +11,8 @@ public class Enemy01Controller : MonoBehaviour {
   [SerializeField] private Transform pointOfShot;
   [SerializeField] private int life;
 
+  [SerializeField] private GameObject explodeEffect;
+
   // Start is called before the first frame update
   void Start() {
     rigidbody2d = GetComponent<Rigidbody2D>();
@@ -31,11 +33,11 @@ public class Enemy01Controller : MonoBehaviour {
 
 
   public void damegedLife (int damege) {
-    Debug.Log("Tomei isso de dano: " + damege);
     life -= damege;
 
     if (life <= 0) {
       Destroy(gameObject);
+      Instantiate(explodeEffect, pointOfShot.position, Quaternion.identity);
     }
   }
 }

@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour {
   }
 
   public void damegedLife (int damege) {
-    Debug.Log("Tomei isso de dano: " + damege);
     life -= damege;
 
     if (life <= 0) {
