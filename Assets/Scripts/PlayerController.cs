@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
   [SerializeField] private float speed = 7f;
   [SerializeField] private GameObject ammunition;
   [SerializeField] private Transform pointOfShot;
+  [SerializeField] private int life;
   // Start is called before the first frame update
   void Start() {
     rigidbody2d = GetComponent<Rigidbody2D>();
@@ -24,5 +25,14 @@ public class PlayerController : MonoBehaviour {
       position.y += 0.8f;
       Instantiate(ammunition, pointOfShot.position, Quaternion.identity);
     } 
+  }
+
+  public void damegedLife (int damege) {
+    Debug.Log("Tomei isso de dano: " + damege);
+    life -= damege;
+
+    if (life <= 0) {
+      Destroy(gameObject);
+    }
   }
 }

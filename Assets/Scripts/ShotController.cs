@@ -17,6 +17,14 @@ public class ShotController : MonoBehaviour {
   void Update() {}
 
   private void OnTriggerEnter2D(Collider2D other) {
+    if (other.CompareTag("Enemy 01")) {
+      other.GetComponent<Enemy01Controller>().damegedLife(1);
+    }
+
+    if (other.CompareTag("Nave")) {
+      other.GetComponent<PlayerController>().damegedLife(1);
+    }
+
     Destroy(gameObject);
   }
 }

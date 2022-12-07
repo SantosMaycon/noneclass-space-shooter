@@ -7,16 +7,15 @@ public class Enemy01Controller : MonoBehaviour {
   [SerializeField] private float speed = 3.5f;
   [SerializeField] private GameObject ammunition;
   private float waitShot;
-  private float waitTime;
   private SpriteRenderer childrenSpriteRender;
   [SerializeField] private Transform pointOfShot;
+  [SerializeField] private int life;
 
   // Start is called before the first frame update
   void Start() {
     rigidbody2d = GetComponent<Rigidbody2D>();
     rigidbody2d.velocity = Vector2.down * speed;
     waitShot = Random.Range(0.5f, 2f);
-    waitTime = waitShot;
     childrenSpriteRender = GetComponentInChildren<SpriteRenderer>();
   }
 
@@ -26,7 +25,17 @@ public class Enemy01Controller : MonoBehaviour {
    
     if (waitShot <= 0 && childrenSpriteRender.isVisible) {
       Instantiate(ammunition, pointOfShot.position, Quaternion.identity);
-      waitShot = waitTime;
+      waitShot = Random.Range(0.5f, 1.5f);
+    }
+  }
+
+
+  public void damegedLife (int damege) {
+    Debug.Log("Tomei isso de dano: " + damege);
+    life -= damege;
+
+    if (life <= 0) {
+      Destroy(gameObject);
     }
   }
 }
