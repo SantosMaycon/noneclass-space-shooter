@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
   private Rigidbody2D rigidbody2d;
-  [SerializeField] private float speed = 7f;
+  [SerializeField] private float speed = 8f;
+  [SerializeField] private float shotSpeed = 10f;
   [SerializeField] private GameObject ammunition;
   [SerializeField] private Transform pointOfShot;
   [SerializeField] private int life;
@@ -22,9 +23,8 @@ public class PlayerController : MonoBehaviour {
     rigidbody2d.velocity = direction * speed;
 
     if (Input.GetButtonDown("Fire1")) {
-      var position = transform.position;
-      position.y += 0.8f;
-      Instantiate(ammunition, pointOfShot.position, Quaternion.identity);
+      var shot = Instantiate(ammunition, pointOfShot.position, Quaternion.identity);
+      shot.GetComponent<Rigidbody2D>().velocity = Vector3.up * shotSpeed;
     } 
   }
 

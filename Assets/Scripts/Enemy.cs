@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour {
   [SerializeField] protected float speed;
   [SerializeField] protected int life;
   [SerializeField] protected GameObject explodeEffect;
+  [SerializeField] protected float shotSpeed = 8f;
 
   // Start is called before the first frame update
   void Start() {}

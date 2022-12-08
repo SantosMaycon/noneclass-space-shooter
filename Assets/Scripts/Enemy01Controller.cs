@@ -22,7 +22,8 @@ public class Enemy01Controller : Enemy {
     waitShot -= Time.deltaTime;
    
     if (waitShot <= 0 && childrenSpriteRender.isVisible) {
-      Instantiate(ammunition, pointOfShot.position, Quaternion.identity);
+      var shot = Instantiate(ammunition, pointOfShot.position, Quaternion.identity);
+      shot.GetComponent<Rigidbody2D>().velocity = Vector3.down * shotSpeed;
       waitShot = Random.Range(0.5f, 1.5f);
     }
   }
