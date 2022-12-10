@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour {
   [SerializeField] protected int life;
   [SerializeField] protected GameObject explodeEffect;
   [SerializeField] protected float shotSpeed = 8f;
+  [SerializeField] protected float yMax = 2.3f;
+  private bool isLive = false;
 
   // Start is called before the first frame update
   void Start() {}
@@ -20,6 +22,16 @@ public class Enemy : MonoBehaviour {
     if (life <= 0) {
       Destroy(gameObject);
       Instantiate(explodeEffect, transform.position, Quaternion.identity);
+    }
+  }
+
+  protected void checkIsLive (bool isVisible) {
+    if (isVisible && !isLive) {
+      isLive = true;
+    }
+
+    if (!isVisible && isLive) {
+      Destroy(gameObject);
     }
   }
 }

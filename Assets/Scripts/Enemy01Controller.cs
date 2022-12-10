@@ -26,5 +26,7 @@ public class Enemy01Controller : Enemy {
       shot.GetComponent<Rigidbody2D>().velocity = Vector3.down * shotSpeed;
       waitShot = Random.Range(0.5f, 1.5f);
     }
+
+    checkIsLive(childrenSpriteRender.isVisible);
   }
 }
