@@ -12,7 +12,7 @@ public class ShotController : MonoBehaviour {
   void Update() {}
 
   private void OnTriggerEnter2D(Collider2D other) {
-    if (other.CompareTag("Enemy")) {
+    if (other.CompareTag("Enemy") && other.gameObject.transform.position.y < 5f) {
       other.GetComponent<Enemy>().damegedLife(1);
     }
 
