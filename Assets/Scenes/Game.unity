@@ -582,7 +582,7 @@ MonoBehaviour:
   shotSpeed: 10
   ammunition: {fileID: 1726175214342563475, guid: cbf70130d2c2f0640b82010be1a2f6f5, type: 3}
   pointOfShot: {fileID: 765680578}
-  life: 5
+  life: 30
   explodeEffect: {fileID: 6936188470495130948, guid: 4a17210007163a64cbaff381d82cc645, type: 3}
 --- !u!50 &1526366056
 Rigidbody2D:
@@ -732,7 +732,10 @@ MonoBehaviour:
   enemies:
   - {fileID: 7887480004510492500, guid: d801b95d9005cae46b2fef7a94ee7d52, type: 3}
   - {fileID: 6317772464276795037, guid: c9a536e9b768cb4429fb9a1c23049904, type: 3}
+  points: 0
   level: 1
+  baseLevel: 100
+  waitEnemy: 0
   spawnWaitTime: 5
 --- !u!4 &1839774225
 Transform:

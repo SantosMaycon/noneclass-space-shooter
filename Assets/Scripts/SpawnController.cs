@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SpawnController : MonoBehaviour {
   [SerializeField] private GameObject[] enemies;
-  private int points = 0;
+  [SerializeField] private int points = 0;
   [SerializeField] private int level = 1;
-  private float waitEnemy = 0f;
+  [SerializeField] private int baseLevel = 100;
+  [SerializeField] private float waitEnemy = 0f;
   [SerializeField] private float spawnWaitTime = 5f;
   // Start is called before the first frame update
   void Start() {}
@@ -14,6 +15,17 @@ public class SpawnController : MonoBehaviour {
   // Update is called once per frame
   void Update() {
     timerSpawn(waitEnemy - Time.deltaTime);
+  }
+
+  public void earnPoints (int points) {
+    this.points += points;
+    earnLevel();
+  }
+
+  void earnLevel () {
+    if (points >= level * baseLevel) {
+      level++;
+    }
   }
 
   private void timerSpawn (float time) {

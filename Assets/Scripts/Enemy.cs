@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour {
   [SerializeField] protected GameObject explodeEffect;
   [SerializeField] protected float shotSpeed = 8f;
   [SerializeField] protected float yMax = 2.3f;
+  [SerializeField] protected int points = 10;
   private bool isLive = false;
 
   // Start is called before the first frame update
@@ -22,6 +23,8 @@ public class Enemy : MonoBehaviour {
     if (life <= 0) {
       Destroy(gameObject);
       Instantiate(explodeEffect, transform.position, Quaternion.identity);
+
+      FindObjectOfType<SpawnController>().earnPoints(points);
     }
   }
 

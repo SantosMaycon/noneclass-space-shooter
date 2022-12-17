@@ -222,9 +222,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  life: 3
+  life: 2
   explodeEffect: {fileID: 6936188470495130948, guid: 4a17210007163a64cbaff381d82cc645, type: 3}
-  shotSpeed: 4
+  shotSpeed: 3
   yMax: 2.3
+  points: 27
   ammunition: {fileID: 5136866266300537812, guid: 1200a74b53499594e8696411c74265f3, type: 3}
   pointOfShot: {fileID: 6317772463524220715}
