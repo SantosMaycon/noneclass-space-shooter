@@ -13,7 +13,7 @@ public class Enemy01Controller : Enemy {
   void Start() {
     rigidbody2d = GetComponent<Rigidbody2D>();
     rigidbody2d.velocity = Vector2.down * speed;
-    waitShot = Random.Range(0.5f, 2f);
+    waitShot = Random.Range(1.5f, 3f);
     childrenSpriteRender = GetComponentInChildren<SpriteRenderer>();
   }
 
@@ -24,7 +24,7 @@ public class Enemy01Controller : Enemy {
     if (waitShot <= 0 && childrenSpriteRender.isVisible) {
       var shot = Instantiate(ammunition, pointOfShot.position, Quaternion.identity);
       shot.GetComponent<Rigidbody2D>().velocity = Vector3.down * shotSpeed;
-      waitShot = Random.Range(0.5f, 1.5f);
+      waitShot = Random.Range(1.5f, 2.5f);
     }
 
     checkIsLive(childrenSpriteRender.isVisible);

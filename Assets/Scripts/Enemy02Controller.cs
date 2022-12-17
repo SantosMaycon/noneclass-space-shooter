@@ -13,7 +13,7 @@ public class Enemy02Controller : Enemy {
   void Start() {
     rigidbody2d = GetComponent<Rigidbody2D>();
     rigidbody2d.velocity = Vector2.down * speed;
-    waitShot = Random.Range(1.5f, 2f);
+    waitShot = Random.Range(2.5f, 3f);
     childrenSpriteRender = GetComponentInChildren<SpriteRenderer>();
   }
 
@@ -46,7 +46,7 @@ public class Enemy02Controller : Enemy {
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         shot.transform.rotation = Quaternion.Euler(0f, 0f, angle + 90f);
 
-        waitShot = Random.Range(0.5f, 1.5f);
+        waitShot = Random.Range(2.5f, 3.5f);
       }
     }
 

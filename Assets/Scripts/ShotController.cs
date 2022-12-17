@@ -19,7 +19,7 @@ public class ShotController : MonoBehaviour {
     if (other.CompareTag("Nave")) {
       other.GetComponent<PlayerController>().damegedLife(1);
     }
-
+    
     Destroy(gameObject);
     Instantiate(explodeShot, transform.position, Quaternion.identity);
   }

@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  life: 2
+  life: 1
   explodeEffect: {fileID: 6936188470495130948, guid: 4a17210007163a64cbaff381d82cc645, type: 3}
   shotSpeed: 3
   yMax: 2.3

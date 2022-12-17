@@ -24,7 +24,9 @@ public class Enemy : MonoBehaviour {
       Destroy(gameObject);
       Instantiate(explodeEffect, transform.position, Quaternion.identity);
 
-      FindObjectOfType<SpawnController>().earnPoints(points);
+      var spawn = FindObjectOfType<SpawnController>();
+      spawn.decreaseEnemies();
+      spawn.earnPoints(points);
     }
   }
 
@@ -35,6 +37,7 @@ public class Enemy : MonoBehaviour {
 
     if (!isVisible && isLive) {
       Destroy(gameObject);
+      this.damegedLife(life);
     }
   }
 
