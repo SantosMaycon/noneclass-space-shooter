@@ -281,7 +281,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -702,6 +702,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79edfb4a4ca373d48adc34d8ae7de8f9, type: 3}
+--- !u!1001 &3619531787000641421
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3607818448482188780, guid: 7d8f509ba66ce7f48ac2270a671cfa8b, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3607818448482188780, guid: 7d8f509ba66ce7f48ac2270a671cfa8b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 3607818448482188780, guid: 7d8f509ba66ce7f48ac2270a671cfa8b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 3607818448482188780, guid: 7d8f509ba66ce7f48ac2270a671cfa8b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3607818448482188780, guid: 7d8f509ba66ce7f48ac2270a671cfa8b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3607818448482188780, guid: 7d8f509ba66ce7f48ac2270a671cfa8b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3607818448482188780, guid: 7d8f509ba66ce7f48ac2270a671cfa8b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3607818448482188780, guid: 7d8f509ba66ce7f48ac2270a671cfa8b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3607818448482188780, guid: 7d8f509ba66ce7f48ac2270a671cfa8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3607818448482188780, guid: 7d8f509ba66ce7f48ac2270a671cfa8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3607818448482188780, guid: 7d8f509ba66ce7f48ac2270a671cfa8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167220855782176901, guid: 7d8f509ba66ce7f48ac2270a671cfa8b, type: 3}
+      propertyPath: m_Name
+      value: Star Particle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d8f509ba66ce7f48ac2270a671cfa8b, type: 3}
 --- !u!1001 &4972622389424635868
 PrefabInstance:
   m_ObjectHideFlags: 0
