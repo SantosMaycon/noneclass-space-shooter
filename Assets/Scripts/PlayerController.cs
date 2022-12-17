@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
   [SerializeField] private Transform pointOfShot;
   [SerializeField] private int life;
   [SerializeField] private GameObject explodeEffect;
+  [SerializeField] private float XLimit;
+  [SerializeField] private float YLimit;
   // Start is called before the first frame update
   void Start() {
     rigidbody2d = GetComponent<Rigidbody2D>();
@@ -21,6 +23,11 @@ public class PlayerController : MonoBehaviour {
     float vertical = Input.GetAxis("Vertical");
     var direction = new Vector2(horizontal, vertical).normalized;
     rigidbody2d.velocity = direction * speed;
+
+    float myX = Mathf.Clamp(transform.position.x, -XLimit, XLimit);
+    float myY = Mathf.Clamp(transform.position.y, -YLimit, YLimit);
+
+    transform.position = new Vector3(myX, myY, transform.position.z);
 
     if (Input.GetButtonDown("Fire1")) {
       var shot = Instantiate(ammunition, pointOfShot.position, Quaternion.identity);
