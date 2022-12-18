@@ -58,4 +58,11 @@ public class PlayerController : MonoBehaviour {
       Instantiate(explodeEffect, pointOfShot.position, Quaternion.identity);
     }
   }
+
+  private void OnTriggerEnter2D(Collider2D other) {
+    if (other.CompareTag("PowerUp")) {
+      shotLevel++;
+      Destroy(other.gameObject);
+    }
+  }
 }
