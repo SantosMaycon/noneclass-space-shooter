@@ -90,6 +90,9 @@ MonoBehaviour:
   explodeEffect: {fileID: 6936188470495130948, guid: 4a17210007163a64cbaff381d82cc645, type: 3}
   shotSpeed: 8
   yMax: 2.3
+  points: 10
+  powerUp: {fileID: 2491992765047145084, guid: 014ec9af12d0c1b4b8e057894ed50a67, type: 3}
+  chanceOfDopPowerUp: 0.95
   ammunition: {fileID: 2083257695023107417, guid: 59454c153fa50654aae06d165de5fc06, type: 3}
   pointOfShot: {fileID: 7887480004704517899}
 --- !u!1 &7887480004704517896

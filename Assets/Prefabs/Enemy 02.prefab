@@ -227,5 +227,7 @@ MonoBehaviour:
   shotSpeed: 3
   yMax: 2.3
   points: 27
+  powerUp: {fileID: 2491992765047145084, guid: 014ec9af12d0c1b4b8e057894ed50a67, type: 3}
+  chanceOfDopPowerUp: 0.2
   ammunition: {fileID: 5136866266300537812, guid: 1200a74b53499594e8696411c74265f3, type: 3}
   pointOfShot: {fileID: 6317772463524220715}

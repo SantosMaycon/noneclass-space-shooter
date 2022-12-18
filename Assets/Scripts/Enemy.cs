@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour {
   [SerializeField] protected float yMax = 2.3f;
   [SerializeField] protected int points = 10;
   private bool isLive = false;
+  [SerializeField] protected GameObject powerUp;
+  [SerializeField] protected float chanceOfDopPowerUp = 0.9f;
 
   // Start is called before the first frame update
   void Start() {}
@@ -27,6 +29,16 @@ public class Enemy : MonoBehaviour {
       var spawn = FindObjectOfType<SpawnController>();
       spawn.decreaseEnemies();
       spawn.earnPoints(points);
+
+      if (powerUp) {
+        float chance = Random.Range(0f, 1f);
+
+        if (chance > chanceOfDopPowerUp) { //5% of chance
+          var instancePowerUp = Instantiate(powerUp, transform.position, Quaternion.identity);
+          instancePowerUp.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * 2;
+          Destroy(instancePowerUp, 3f);
+        }
+      }
     }
   }
 
