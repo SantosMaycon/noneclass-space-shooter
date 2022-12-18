@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour {
   [SerializeField] private float speed = 8f;
   [SerializeField] private float shotSpeed = 10f;
   [SerializeField] private GameObject ammunition;
+  [SerializeField] private GameObject ammunition2;
+  [SerializeField] private int shotLevel = 1;
   [SerializeField] private Transform pointOfShot;
   [SerializeField] private int life;
   [SerializeField] private GameObject explodeEffect;
@@ -30,8 +32,21 @@ public class PlayerController : MonoBehaviour {
     transform.position = new Vector3(myX, myY, transform.position.z);
 
     if (Input.GetButtonDown("Fire1")) {
-      var shot = Instantiate(ammunition, pointOfShot.position, Quaternion.identity);
-      shot.GetComponent<Rigidbody2D>().velocity = Vector3.up * shotSpeed;
+      switch (shotLevel)
+      {
+        case 1:
+          Instantiate(ammunition, pointOfShot.position, Quaternion.identity).GetComponent<Rigidbody2D>().velocity = Vector3.up * shotSpeed;
+        break;
+        case 2:
+          Instantiate(ammunition2, new Vector3(pointOfShot.position.x - 0.4f, pointOfShot.position.y - 0.3f, pointOfShot.position.z), Quaternion.identity).GetComponent<Rigidbody2D>().velocity = Vector3.up * shotSpeed;
+          Instantiate(ammunition2, new Vector3(pointOfShot.position.x + 0.4f, pointOfShot.position.y - 0.3f, pointOfShot.position.z), Quaternion.identity).GetComponent<Rigidbody2D>().velocity = Vector3.up * shotSpeed;
+        break;
+        default:
+          Instantiate(ammunition2, new Vector3(pointOfShot.position.x - 0.6f, pointOfShot.position.y - 0.3f, pointOfShot.position.z), Quaternion.identity).GetComponent<Rigidbody2D>().velocity = Vector3.up * shotSpeed;
+          Instantiate(ammunition, pointOfShot.position, Quaternion.identity).GetComponent<Rigidbody2D>().velocity = Vector3.up * shotSpeed;
+          Instantiate(ammunition2, new Vector3(pointOfShot.position.x + 0.6f, pointOfShot.position.y - 0.3f, pointOfShot.position.z), Quaternion.identity).GetComponent<Rigidbody2D>().velocity = Vector3.up * shotSpeed;
+        break;
+      }
     } 
   }
 

@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour {
 
     if (!isVisible && isLive) {
       Destroy(gameObject);
-      this.damegedLife(life);
+      FindObjectOfType<SpawnController>().decreaseEnemies();
     }
   }
 
