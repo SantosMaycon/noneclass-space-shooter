@@ -221,13 +221,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b869b7535d6d39489b050611daf9d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  life: 1
+  speed: 1.4
+  life: 3
   explodeEffect: {fileID: 6936188470495130948, guid: 4a17210007163a64cbaff381d82cc645, type: 3}
-  shotSpeed: 3
+  shotSpeed: 2.5
   yMax: 2.3
   points: 27
   powerUp: {fileID: 2491992765047145084, guid: 014ec9af12d0c1b4b8e057894ed50a67, type: 3}
-  chanceOfDopPowerUp: 0.8
+  chanceOfDopPowerUp: 0.97
   ammunition: {fileID: 5136866266300537812, guid: 1200a74b53499594e8696411c74265f3, type: 3}
   pointOfShot: {fileID: 6317772463524220715}
