@@ -26,9 +26,7 @@ public class Enemy : MonoBehaviour {
       Destroy(gameObject);
       Instantiate(explodeEffect, transform.position, Quaternion.identity);
 
-      var spawn = FindObjectOfType<SpawnController>();
-      spawn.decreaseEnemies();
-      spawn.earnPoints(points);
+      FindObjectOfType<SpawnController>().earnPoints(points);
 
       if (powerUp) {
         float chance = Random.Range(0f, 1f);
@@ -49,7 +47,7 @@ public class Enemy : MonoBehaviour {
 
     if (!isVisible && isLive) {
       Destroy(gameObject);
-      FindObjectOfType<SpawnController>().decreaseEnemies();
+      // FindObjectOfType<SpawnController>().decreaseEnemies();
     }
   }
 
@@ -58,5 +56,9 @@ public class Enemy : MonoBehaviour {
       this.damegedLife(life);
       other.gameObject.GetComponent<PlayerController>().damegedLife(1);
     }
+  }
+
+  private void OnDestroy() {
+    FindObjectOfType<SpawnController>()?.decreaseEnemies();
   }
 }

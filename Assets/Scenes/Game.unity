@@ -769,6 +769,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4972622391213000140, guid: 815fec1c84db3ee41adfffc5c9573fc9, type: 3}
+      propertyPath: level
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972622391213000140, guid: 815fec1c84db3ee41adfffc5c9573fc9, type: 3}
       propertyPath: spawnWaitTime
       value: 2
       objectReference: {fileID: 0}
