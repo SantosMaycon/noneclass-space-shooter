@@ -582,9 +582,11 @@ MonoBehaviour:
   shotSpeed: 10
   ammunition: {fileID: 1726175214342563475, guid: cbf70130d2c2f0640b82010be1a2f6f5, type: 3}
   ammunition2: {fileID: 3666874847679130275, guid: 7eec2854f66b2e24f999d84c6f61721b, type: 3}
+  shield: {fileID: 5232717486986905202, guid: ab5a9795d0308414ba33f33c162b9180, type: 3}
+  timeShield: 5
   shotLevel: 1
   pointOfShot: {fileID: 765680578}
-  life: 500
+  life: 10
   explodeEffect: {fileID: 6936188470495130948, guid: 4a17210007163a64cbaff381d82cc645, type: 3}
   XLimit: 8.8
   YLimit: 4.35

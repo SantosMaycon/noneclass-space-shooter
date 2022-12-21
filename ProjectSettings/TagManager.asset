@@ -9,6 +9,7 @@ TagManager:
   - Nave
   - Outside
   - PowerUp
+  - Shield
   layers:
   - Default
   - TransparentFX

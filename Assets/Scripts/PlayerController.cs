@@ -8,12 +8,17 @@ public class PlayerController : MonoBehaviour {
   [SerializeField] private float shotSpeed = 10f;
   [SerializeField] private GameObject ammunition;
   [SerializeField] private GameObject ammunition2;
+  [SerializeField] private GameObject shield;
+  private float timeShieldAux;
   [SerializeField] private int shotLevel = 1;
   [SerializeField] private Transform pointOfShot;
   [SerializeField] private int life;
   [SerializeField] private GameObject explodeEffect;
   [SerializeField] private float XLimit;
   [SerializeField] private float YLimit;
+  [SerializeField] private float shieldLimit = 3;
+
+  private GameObject instantiateShield;
   // Start is called before the first frame update
   void Start() {
     rigidbody2d = GetComponent<Rigidbody2D>();
@@ -48,6 +53,21 @@ public class PlayerController : MonoBehaviour {
         break;
       }
     } 
+
+    if (Input.GetButtonDown("Shield") && !instantiateShield && shieldLimit > 0) {
+      instantiateShield = Instantiate(shield, transform.position, Quaternion.identity);
+      timeShieldAux = 6.2f;
+      shieldLimit--;
+    }
+
+    if (instantiateShield) {
+      instantiateShield.transform.position = transform.position;
+      timeShieldAux -= Time.deltaTime;
+    }
+
+    if (timeShieldAux <= 0) {
+      Destroy(instantiateShield);
+    }
   }
 
   public void damegedLife (int damege) {

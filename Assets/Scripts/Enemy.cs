@@ -56,6 +56,10 @@ public class Enemy : MonoBehaviour {
       this.damegedLife(life);
       other.gameObject.GetComponent<PlayerController>().damegedLife(1);
     }
+
+    if (other.gameObject.CompareTag("Shield")) {
+      this.damegedLife(life);
+    }
   }
 
   private void OnDestroy() {
