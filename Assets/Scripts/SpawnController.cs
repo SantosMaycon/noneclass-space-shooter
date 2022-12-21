@@ -7,9 +7,11 @@ public class SpawnController : MonoBehaviour {
   [SerializeField] private int points = 0;
   [SerializeField] private int level = 1;
   [SerializeField] private int baseLevel = 100;
-  private float waitEnemy = 0f;
+  [SerializeField] private float waitEnemy = 0f;
   [SerializeField] private float spawnWaitTime = 5f;
   [SerializeField] private int quantityEnemies = 0;
+  [SerializeField] private GameObject bossAnimation;
+  private bool wakeUpBoss = true;
 
   // Start is called before the first frame update
   void Start() {}
@@ -17,8 +19,10 @@ public class SpawnController : MonoBehaviour {
   // Update is called once per frame
   void Update() {
     if (quantityEnemies <= 0) {
-      timerSpawn(waitEnemy - Time.deltaTime);
+      waitEnemy -= Time.deltaTime;
     }
+
+    spawnController();
   }
 
   public void earnPoints (int points) {
@@ -41,42 +45,58 @@ public class SpawnController : MonoBehaviour {
     return hit;
   }
 
-  private void timerSpawn (float time) {
-    waitEnemy = time;
-
+  private void spawnController () {
     if (waitEnemy <= 0) {
-      int quantity = level * 3;
-      int tryCheck = 0;
-
-      if (quantityEnemies <= 0) {
-        while (quantityEnemies < quantity) {
-          if (enemies.Length >= 1) {
-            tryCheck++;
-
-            if (tryCheck > 200) { break; }
-
-            GameObject enemyObject;
-
-            float chance = Random.Range(0f, level);
-            if (chance > 2f) {
-              enemyObject = enemies[1];
-            } else {
-              enemyObject = enemies[0];
-            }
-
-            var randomPosition = new Vector3(Random.Range(-7, 7), Random.Range(5, 14), 0f);
-
-            var colision = checkPosition(randomPosition, enemyObject.transform.localScale);
-            
-            if (!colision) {
-              Instantiate(enemyObject, randomPosition, Quaternion.identity);
-              quantityEnemies++;
-            }
-
-          }   
-        }
+      if ( level < 10) {
+        spawnEnemies();
+      } else if (level >= 10 && wakeUpBoss) {
+        spawnBossAnimation();
       }
+
       waitEnemy = spawnWaitTime;
+    }
+  }
+
+  private void spawnBossAnimation () {
+    if (wakeUpBoss) {
+      var instanceBossAnimation = Instantiate(bossAnimation, Vector3.zero, Quaternion.identity);
+      quantityEnemies++;
+      wakeUpBoss = false;
+    }
+  }
+
+  private void spawnBoss () {}
+
+  private void spawnEnemies () {
+    int quantity = level * 3;
+    int tryCheck = 0;
+
+    if (quantityEnemies <= 0) {
+      while (quantityEnemies < quantity) {
+        if (enemies.Length >= 1) {
+          tryCheck++;
+
+          if (tryCheck > 200) { break; }
+
+          GameObject enemyObject;
+
+          float chance = Random.Range(0f, level);
+          if (chance > 2f) {
+            enemyObject = enemies[1];
+          } else {
+            enemyObject = enemies[0];
+          }
+
+          var randomPosition = new Vector3(Random.Range(-7, 7), Random.Range(5, 14), 0f);
+
+          var colision = checkPosition(randomPosition, enemyObject.transform.localScale);
+          
+          if (!colision) {
+            Instantiate(enemyObject, randomPosition, Quaternion.identity);
+            quantityEnemies++;
+          }
+        }   
+      }
     }
   }
 }
