@@ -52,12 +52,12 @@ public class Enemy : MonoBehaviour {
 
   private void OnCollisionEnter2D(Collision2D other) {
     if (other.gameObject.CompareTag("Nave")) {
-      this.damegedLife(life);
+      this.damegedLife(1);
       other.gameObject.GetComponent<PlayerController>().damegedLife(1);
     }
 
     if (other.gameObject.CompareTag("Shield")) {
-      this.damegedLife(life);
+      this.damegedLife(1);
     }
   }
 
