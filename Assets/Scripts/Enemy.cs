@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour {
       if (powerUp) {
         float chance = Random.Range(0f, 1f);
 
-        if (chance > chanceOfDopPowerUp) { //5% of chance
+        if (chance > chanceOfDopPowerUp) {
           var instancePowerUp = Instantiate(powerUp, transform.position, Quaternion.identity);
           instancePowerUp.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * 2;
           Destroy(instancePowerUp, 3f);
@@ -47,7 +47,6 @@ public class Enemy : MonoBehaviour {
 
     if (!isVisible && isLive) {
       Destroy(gameObject);
-      // FindObjectOfType<SpawnController>().decreaseEnemies();
     }
   }
 
