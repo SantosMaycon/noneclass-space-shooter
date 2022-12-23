@@ -874,7 +874,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4972622391213000140, guid: 815fec1c84db3ee41adfffc5c9573fc9, type: 3}
       propertyPath: level
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4972622391213000140, guid: 815fec1c84db3ee41adfffc5c9573fc9, type: 3}
       propertyPath: textSpawn
