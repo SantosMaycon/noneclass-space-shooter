@@ -81,8 +81,9 @@ public class PlayerController : MonoBehaviour {
     textLife.text = life.ToString();
 
     if (life <= 0) {
-      Destroy(gameObject);
+      gameObject.SetActive(false); // Disable
       Instantiate(explodeEffect, pointOfShot.position, Quaternion.identity);
+      Invoke("gameOver", 3f);
     }
   }
 
@@ -91,5 +92,9 @@ public class PlayerController : MonoBehaviour {
       shotLevel++;
       Destroy(other.gameObject);
     }
+  }
+
+  private void gameOver () {
+    FindObjectOfType<GameManager>()?.goToTheStartScene();
   }
 }

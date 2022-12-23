@@ -674,7 +674,7 @@ MonoBehaviour:
   shield: {fileID: 5232717486986905202, guid: ab5a9795d0308414ba33f33c162b9180, type: 3}
   shotLevel: 1
   pointOfShot: {fileID: 765680578}
-  life: 25
+  life: 20
   explodeEffect: {fileID: 6936188470495130948, guid: 4a17210007163a64cbaff381d82cc645, type: 3}
   XLimit: 9.8
   YLimit: 4.35

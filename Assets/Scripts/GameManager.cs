@@ -4,6 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
+  private void Awake() {
+    var quantity = FindObjectsOfType<GameManager>().Length;
+
+    if (quantity > 1) {
+      Destroy(gameObject);
+    } 
+      
+    DontDestroyOnLoad(gameObject);
+  }
+
   // Update is called once per frame
   void Update() {}
 
