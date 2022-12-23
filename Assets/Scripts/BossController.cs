@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossController : Enemy {
   [SerializeField] private string state = "First";
@@ -10,12 +11,14 @@ public class BossController : Enemy {
   [SerializeField] private float delayShot = 1;
   [SerializeField] private string[] states;
   [SerializeField] private float waitBetweenState = 10f;
+  [SerializeField] private Image lifeBar;
   private float waitState;
   private bool isDirection = true;
   private Rigidbody2D rigidbody2d;
   private float waitShot;
   private float waitShot2;
   private SpriteRenderer childrenSpriteRender;
+  private float fullLife;
   // Start is called before the first frame update
   void Start() {
     speed = 7f;
@@ -23,6 +26,7 @@ public class BossController : Enemy {
     waitShot = 1f;
     waitState = waitBetweenState;
     childrenSpriteRender = GetComponentInChildren<SpriteRenderer>();
+    fullLife = life;
   }
 
   // Update is called once per frame
@@ -30,6 +34,8 @@ public class BossController : Enemy {
     changeState();
     waitShot -= Time.deltaTime;
     waitShot2 -= Time.deltaTime;
+    lifeBar.fillAmount = ((float) life / fullLife);
+    lifeBar.color = new Color32(190, (byte) (lifeBar.fillAmount * 255), 54, 255);
 
     switch (state) {
       case "First":

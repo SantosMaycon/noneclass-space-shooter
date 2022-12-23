@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnController : MonoBehaviour {
   [SerializeField] private GameObject[] enemies;
@@ -11,10 +12,13 @@ public class SpawnController : MonoBehaviour {
   [SerializeField] private float spawnWaitTime = 5f;
   [SerializeField] private int quantityEnemies = 0;
   [SerializeField] private GameObject bossAnimation;
+  [SerializeField] private Text textSpawn;
   private bool wakeUpBoss = true;
 
   // Start is called before the first frame update
-  void Start() {}
+  void Start() {
+    textSpawn.text = "Points : " + points + "\nLevel : " + level;
+  }
 
   // Update is called once per frame
   void Update() {
@@ -27,12 +31,14 @@ public class SpawnController : MonoBehaviour {
 
   public void earnPoints (int points) {
     this.points += points;
+    textSpawn.text = "Points : " + points + "\nLevel : " + level;
     earnLevel();
   }
 
   void earnLevel () {
     if (points >= level * baseLevel) {
       level++;
+      textSpawn.text = "Points : " + points + "\nLevel : " + level;
     }
   }
 
