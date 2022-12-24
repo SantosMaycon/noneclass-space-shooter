@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour {
   private bool isLive = false;
   [SerializeField] protected GameObject powerUp;
   [SerializeField] protected float chanceOfDopPowerUp = 0.9f;
+  [SerializeField] protected AudioClip mySound;
 
   // Start is called before the first frame update
   void Start() {}

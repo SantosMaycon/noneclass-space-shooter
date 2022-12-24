@@ -291,13 +291,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  life: 50
+  life: 250
   explodeEffect: {fileID: 6936188470495130948, guid: 4a17210007163a64cbaff381d82cc645, type: 3}
   shotSpeed: 5
   yMax: 2.3
   points: 10
   powerUp: {fileID: 0}
   chanceOfDopPowerUp: 0.9
+  mySound: {fileID: 8300000, guid: 9b938886203ba8a4b85a5163543ffff7, type: 3}
   state: Third
   ammunition:
   - {fileID: 2083257695023107417, guid: 59454c153fa50654aae06d165de5fc06, type: 3}

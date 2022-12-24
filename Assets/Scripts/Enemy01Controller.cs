@@ -25,6 +25,10 @@ public class Enemy01Controller : Enemy {
       var shot = Instantiate(ammunition, pointOfShot.position, Quaternion.identity);
       shot.GetComponent<Rigidbody2D>().velocity = Vector3.down * shotSpeed;
       waitShot = Random.Range(1.5f, 2.5f);
+      
+      if (mySound) {
+        AudioSource.PlayClipAtPoint(mySound, Vector3.zero);
+      }
     }
 
     checkIsLive(childrenSpriteRender.isVisible);

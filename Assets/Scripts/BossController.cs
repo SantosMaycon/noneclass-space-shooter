@@ -71,6 +71,10 @@ public class BossController : Enemy {
     Instantiate(ammunition[0], pointsOfShot[0].position, Quaternion.identity).GetComponent<Rigidbody2D>().velocity = Vector3.down * shotSpeed;
     Instantiate(ammunition[0], pointsOfShot[2].position, Quaternion.identity).GetComponent<Rigidbody2D>().velocity = Vector3.down * shotSpeed;
     waitShot = delayShot;
+
+    if (mySound) {
+      AudioSource.PlayClipAtPoint(mySound, Vector3.zero);
+    }
   }
   private void remoteShot() {
     var player = FindObjectOfType<PlayerController>();
@@ -86,6 +90,10 @@ public class BossController : Enemy {
       shot.transform.rotation = Quaternion.Euler(0f, 0f, angle + 90f);
 
       waitShot2 = delayShot/2;
+
+      if (mySound) {
+        AudioSource.PlayClipAtPoint(mySound, Vector3.zero);
+      }
     }
   }
   private void firstState () {

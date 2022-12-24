@@ -13,11 +13,14 @@ public class SpawnController : MonoBehaviour {
   [SerializeField] private int quantityEnemies = 0;
   [SerializeField] private GameObject bossAnimation;
   [SerializeField] private Text textSpawn;
+  [SerializeField] private AudioClip boosMusic;
+  [SerializeField] private AudioSource music;
   private bool wakeUpBoss = true;
 
   // Start is called before the first frame update
   void Start() {
     textSpawn.text = "Points : " + points + "\nLevel : " + level;
+    music = GetComponent<AudioSource>();
   }
 
   // Update is called once per frame
@@ -27,18 +30,17 @@ public class SpawnController : MonoBehaviour {
     }
 
     spawnController();
+    textSpawn.text = "Points : " + points + "\nLevel : " + level;
   }
 
   public void earnPoints (int points) {
     this.points += points;
-    textSpawn.text = "Points : " + points + "\nLevel : " + level;
     earnLevel();
   }
 
   void earnLevel () {
     if (points >= level * baseLevel) {
       level++;
-      textSpawn.text = "Points : " + points + "\nLevel : " + level;
     }
   }
 
@@ -68,6 +70,9 @@ public class SpawnController : MonoBehaviour {
       var instanceBossAnimation = Instantiate(bossAnimation, Vector3.zero, Quaternion.identity);
       quantityEnemies++;
       wakeUpBoss = false;
+
+      music.clip = boosMusic;
+      music.Play();
     }
   }
 

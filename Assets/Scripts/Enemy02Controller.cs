@@ -47,6 +47,10 @@ public class Enemy02Controller : Enemy {
         shot.transform.rotation = Quaternion.Euler(0f, 0f, angle + 90f);
 
         waitShot = Random.Range(2.5f, 3.5f);
+
+        if (mySound) {
+          AudioSource.PlayClipAtPoint(mySound, Vector3.zero);
+        }
       }
     }
 

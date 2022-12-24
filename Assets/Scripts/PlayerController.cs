@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour {
   [SerializeField] private float shieldLimit = 3;
   [SerializeField] private Text textLife;
   [SerializeField] private Text textShield;
+  [SerializeField] private AudioClip shotSound;
+  [SerializeField] private AudioClip shieldSound;
+  [SerializeField] private AudioClip shieldSoundDown;
 
   private GameObject instantiateShield;
   // Start is called before the first frame update
@@ -57,6 +60,10 @@ public class PlayerController : MonoBehaviour {
           Instantiate(ammunition2, new Vector3(pointOfShot.position.x + 0.6f, pointOfShot.position.y - 0.3f, pointOfShot.position.z), Quaternion.identity).GetComponent<Rigidbody2D>().velocity = Vector3.up * shotSpeed;
         break;
       }
+      
+      if (shotSound) {
+        AudioSource.PlayClipAtPoint(shotSound, Vector3.zero);
+      }
     } 
 
     if (Input.GetButtonDown("Shield") && !instantiateShield && shieldLimit > 0) {
@@ -64,6 +71,12 @@ public class PlayerController : MonoBehaviour {
       timeShieldAux = 6.2f;
       shieldLimit--;
       textShield.text = shieldLimit.ToString();
+
+      if (shieldSound) {
+        AudioSource.PlayClipAtPoint(shieldSound, Vector3.zero);
+      }
+
+      Invoke("shieldExpiredSound", 6f);
     }
 
     if (instantiateShield) {
@@ -96,5 +109,11 @@ public class PlayerController : MonoBehaviour {
 
   private void gameOver () {
     FindObjectOfType<GameManager>()?.goToTheStartScene();
+  }
+
+  private void shieldExpiredSound () {
+    if (shieldSoundDown) {
+      AudioSource.PlayClipAtPoint(shieldSoundDown, Vector3.zero);
+    }
   }
 }
