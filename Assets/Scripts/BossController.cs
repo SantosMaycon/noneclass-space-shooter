@@ -137,4 +137,8 @@ public class BossController : Enemy {
       waitState -= Time.deltaTime;
     }
   }
+
+  private void gameOver () {
+    FindObjectOfType<GameManager>()?.goToTheStartScene();
+  }
 }
